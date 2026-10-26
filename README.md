@@ -6,7 +6,7 @@ timeline scaled to your real runway, a prioritised vendor checklist, personalise
 written plan summary. Everything is computed from *your* context, in your browser, with **no
 server, no API key and no sign-up** — it works fully offline.
 
-🔗 **Live demo:** _[GitHub Pages link — added on publish]_
+**Live demo:** https://swarnnim.github.io/celebraite/ | Repo: https://github.com/swarnnim/celebraite
 📦 **Repo size:** well under 10 MB · single branch (`main`) · zero build step (plain HTML/CSS/JS)
 
 ## Chosen vertical
