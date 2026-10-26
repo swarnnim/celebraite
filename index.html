@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CelebrAIte — GenAI Celebration &amp; Event Planner</title>
+<meta name="description" content="A GenAI-powered planning assistant for weddings, birthdays and community events: budgets, timelines, vendor checklists and personalised ideas — computed from your context, 100% offline.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#planner">Skip to planner</a>
+
+<header class="hero">
+  <p class="kicker">PromptWars Virtual · Challenge 5</p>
+  <h1>Celebr<span class="ai">AI</span>te</h1>
+  <p class="tagline">A GenAI-powered celebration planner. Tell it the occasion — it builds the
+  budget, the timeline, the vendor checklist and the ideas, all from <em>your</em> numbers.</p>
+</header>
+
+<main id="planner" class="layout">
+  <section class="card form-card" aria-labelledby="form-h">
+    <h2 id="form-h">Plan your event</h2>
+    <form id="plan-form" novalidate>
+      <div class="field">
+        <label for="f-type">Event type</label>
+        <select id="f-type" name="eventType">
+          <option value="wedding">Wedding</option>
+          <option value="birthday">Birthday party</option>
+          <option value="community">Community event</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-date">Event date</label>
+        <input type="date" id="f-date" name="date" required>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label for="f-guests">Guests</label>
+          <input type="number" id="f-guests" name="guests" min="1" max="100000" value="200" required>
+        </div>
+        <div class="field">
+          <label for="f-budget">Total budget (₹)</label>
+          <input type="number" id="f-budget" name="budget" min="0" max="100000000" step="1000" value="500000" required>
+        </div>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label for="f-city">City</label>
+          <input type="text" id="f-city" name="city" value="Ahmedabad" maxlength="60" autocomplete="address-level2">
+        </div>
+        <div class="field">
+          <label for="f-theme">Theme / vibe</label>
+          <select id="f-theme" name="theme">
+            <option value="traditional">Traditional</option>
+            <option value="modern" selected>Modern</option>
+            <option value="eco">Eco-friendly</option>
+            <option value="royal">Royal</option>
+            <option value="minimal">Minimal</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-must">Must-haves <span class="hint">(optional — e.g. live counters, drone shoot)</span></label>
+        <input type="text" id="f-must" name="mustHaves" maxlength="120" placeholder="What is non-negotiable?">
+      </div>
+      <button type="submit" class="primary">Generate my plan</button>
+      <p class="privacy">Runs entirely in your browser. No sign-up, no data leaves this page.</p>
+    </form>
+  </section>
+
+  <section class="results" id="results" aria-labelledby="results-h" hidden>
+    <div class="results-head">
+      <h2 id="results-h">Your plan</h2>
+      <div class="actions">
+        <button type="button" id="btn-regen">↻ Regenerate wording</button>
+        <button type="button" id="btn-copy">Copy as text</button>
+        <button type="button" id="btn-print">Print / save PDF</button>
+      </div>
+    </div>
+    <p class="sr-status" role="status" aria-live="polite" id="status"></p>
+
+    <article class="card" aria-labelledby="narr-h">
+      <h3 id="narr-h">Your plan in words</h3>
+      <p id="narrative" class="narrative"></p>
+      <p class="gen-note">Generated locally by CelebrAIte's combinatorial text engine — templates + context rules + seeded variation. No cloud AI, no API key; regenerate for a fresh wording of the same plan.</p>
+    </article>
+
+    <article class="card" aria-labelledby="budget-h">
+      <h3 id="budget-h">Budget breakdown</h3>
+      <p id="budget-meta" class="meta"></p>
+      <div id="budget-rows"></div>
+    </article>
+
+    <article class="card" aria-labelledby="tl-h">
+      <h3 id="tl-h">Planning timeline</h3>
+      <p id="tl-meta" class="meta"></p>
+      <ol id="timeline" class="timeline"></ol>
+      <h4>Day-of run sheet</h4>
+      <ol id="runsheet" class="runsheet"></ol>
+    </article>
+
+    <article class="card" aria-labelledby="vc-h">
+      <h3 id="vc-h">Vendor checklist</h3>
+      <div class="progress-wrap">
+        <progress id="vc-progress" value="0" max="100" aria-label="Vendor booking progress"></progress>
+        <span id="vc-progress-text">0 of 0 booked</span>
+      </div>
+      <ul id="checklist" class="checklist"></ul>
+    </article>
+
+    <article class="card" aria-labelledby="ideas-h">
+      <h3 id="ideas-h">Personalised ideas</h3>
+      <p id="ideas-note" class="meta"></p>
+      <ul id="ideas" class="ideas"></ul>
+    </article>
+  </section>
+</main>
+
+<footer>
+  <p>CelebrAIte · Built with AI assistance for PromptWars Virtual Challenge 5 · MIT licensed · Works fully offline</p>
+</footer>
+
+<script src="src/logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
