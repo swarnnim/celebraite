@@ -20,8 +20,8 @@ Built with AI assistance (declared honestly in the repo's BUILD_NOTES.md), verif
 
 📸 [Attach: assets/shot-1-hero-form.png, assets/shot-2-plan-words.png, assets/shot-3-checklist.png — the planner, a generated plan, and the vendor checklist in action]
 
-Try it live: [DEPLOYED LINK — ADD ON PUBLISH]
-Code: [GITHUB REPO LINK — ADD ON PUBLISH]
+Try it live: https://swarnnim.github.io/celebraite/
+Code: https://github.com/swarnnim/celebraite
 
 @googlefordevelopers @hack2skill
 #BuildwithAI #PromptWarsVirtual #Challenge5
